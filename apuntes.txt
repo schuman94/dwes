@@ -106,12 +106,9 @@ elseif (condicion):
 	...
 endif;
 
-
-
-
+PLANTILLAS
 De esta forma separamos el backend del frontend
 <?php if (isset($_GET['y'])): ?>
 	<p>El valor del parametro x es <?= $_GET['x'] ?></p>
 <?php endif ?>
 
-holamundo
