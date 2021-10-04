@@ -1,0 +1,117 @@
+...........
+....PHP....
+...........
+
+STRING
+"" -> interpreta las secuencias de escape y las variables.
+'' -> no interpreta.
+Existiendo $h y $hola: "{$h}ola" consigue interpolar $h 
+$c[0] indexa bytes en vez de posiciones. Hay carácteres que ocupan 2 bytes.
+mb_strlen() devuelve la longitud de una cadena.
+trim(), ltrim() y rtrim() elimina espacios.
+str_repeat("cadena", 5)
+mb_strpos("cadena", "d") devuelve la posicion de la primera ocurrencia de la substring.
+mb_substr($c, 4, 1) se usa en vez de indexar con $c[]
+
+...................................
+Secuencias heredoc y nowdoc
+...................................
+$c = <<<EOT
+asfjafjàwdeifjawefjaefjawedifj
+
+weFJNAOWIFJPWJEOWEFWEIFJEWO
+asdasd  	$x	dfdasgdfg \n
+EOT;
+...................................
+<<<'EOT' indica que no interpola cadenas ni expande variables (nowdoc)
+.........................................................................
+
+
+ARRAYS
+unset() elimina variables o elementos de un array
+$array[] = 'a' añade un nuevo elemento al array en la siguiente posición con el indice siguiente al mas grande que se ha usado.
+isset() comprueba si una variable o un elemento del array existe o es null.
+array_key_exists() devuelve true si la clave existe en ese array.
+array_search('a', $a) en un array devuelve la primera clave que contenga el valor indicado.
+asort() ordena por valor un array y devuelve true.
+count() te cuenta el numero de elementos del array.
+empty() devuelve true si el array está vacio. Tambien se usa para cadenas pero detecta la cadena "0" como vacia tambien.
+print_r() imprime un array que tiene dentro otros arrays.
+
+CONSTANTES
+define('PI', 3.14) (Antiguo)
+const PI = 3.14   (Nuevo)
+Preguntar si una variable está definida: defined('PI')
+
+COMPROBACINES DE TIPOS
+gettype() devuelve una cadena con el tipo de la expresión.
+is_*() donde * es el nombre del tipo, pregunta si la expresion es de ese tipo.
+var_dump() vuelca (no devuelve) a la salida el valor y el tipo de la expresion.
+is_null()
+is_numeric() util para que nos devuelva true si lo que hay dentro es una cadena pero en realidad es un numero.
+ctype_*() comprueba si la cadena está compuesta por un tipo de caracteres (digitos, alfanumericos, alfabeticos, mayusculas, etc)
+
+CONVERSIONES
+(int) "4" => 4
+intval() boolval() floatval() strval()
+
+COMPARACIONES
+?? es el coalesce de sql. null ?? 5 devuelve 5 (el primero que no sea nulo)
+<=> (nave espacial) devuelve numero mayor que 0, menor o igual dependiendo de las expresiones de ambos lados.
+== comparacion normal, pero === compara el tipo sin hacer conversion implicita.
+$a ? $a : $b (operador ternario)  Hay una simplificación (operador elvis) $a ?: $b
+
+
+Crear servidor con php
+php -S 0.0.0.0:8000
+Podemos añadirle la opcion -t para indicar el documentroot, sino, es la carpeta actual.
+
+git config --global user.name ""
+git config --global user.email ""
+
+implode('-', [1,2,3,4]) Te devuelve una cadena de todos los elementos del array separados en este caso por un guion.
+explode('&', 'x=5&y=7') Te devuelve un array formado por elementos de la cadena que han sido separados en este caso por un &.
+
+$_GET es un array que contiene clave (cadena) y valor (cadena) de los parametros de la petición get.
+$_SERVER es un array que contiene bastante información util.
+
+<?php echo expresion ?> es igual que <?= expresion ?>
+
+foreach (array as [$k =>] $v) {}
+
+ESTRUCTURAS DE CONTROL ALTERNATIVAS
+while(condicion):
+	...
+endwhile;
+
+__________________________
+
+for(expe1;expr2;expr3):
+	...
+endfor;
+
+__________________________
+
+foreach (array as $v):
+	...
+endforeach;
+
+_________________________
+
+if (condicion):
+	...
+else:
+	...
+elseif (condicion):
+	...
+endif;
+
+
+
+
+De esta forma separamos el backend del frontend
+<?php if (isset($_GET['y'])): ?>
+	<p>El valor del parametro x es <?= $_GET['x'] ?></p>
+<?php endif ?>
+
+
