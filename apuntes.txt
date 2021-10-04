@@ -114,4 +114,4 @@ De esta forma separamos el backend del frontend
 	<p>El valor del parametro x es <?= $_GET['x'] ?></p>
 <?php endif ?>
 
-
+holamundo
