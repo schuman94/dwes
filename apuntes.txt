@@ -112,3 +112,11 @@ De esta forma separamos el backend del frontend
 	<p>El valor del parametro x es <?= $_GET['x'] ?></p>
 <?php endif ?>
 
+
+Crear repositorio en github desde terminal:
+gh repo create nombre
+Hay que instalar cli/cli de github.
+
+Extensiones necesarias:
+PHP Intelephense
+
