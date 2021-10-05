@@ -120,3 +120,4 @@ Hay que instalar cli/cli de github.
 Extensiones necesarias:
 PHP Intelephense
 
+in_array(x,y) comprueba si x está en el array y.

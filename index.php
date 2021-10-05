@@ -7,8 +7,34 @@
     <title>index</title>
 </head>
 <body>
-    <?php if (isset($_GET['x'], $_GET['y'])): ?>
-        <p>La suma vale <?= $_GET['x'] + $_GET['y'] ?></p>
+
+
+    <?php if (isset($_GET['oper'])): ?>
+        <p>El valor del parámetro oper es <?= $_GET['oper'] ?> </p>
+    <?php else: ?>
+        <p>No se ha indicado la operacion</p>
     <?php endif ?>
+
+    <?php if (isset($_GET['x'], $_GET['y'])): ?>
+        <?php
+        switch ($_GET['oper']) {
+            case 'suma':
+                $res = $_GET['x'] + $_GET['y'];
+                break;
+            case 'resta':
+                $res = $_GET['x'] - $_GET['y'];
+                break;
+            case 'multi':
+                $res = $_GET['x'] * $_GET['y'];
+                break;
+            case 'div':
+                $res = $_GET['x'] / $_GET['y'];
+                break;
+        }
+        ?>
+    
+    <p>El resultado es <?= $res ?></p>
+    <?php endif ?>
+    
 </body>
 </html>
