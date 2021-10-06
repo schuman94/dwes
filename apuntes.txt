@@ -121,3 +121,22 @@ Extensiones necesarias:
 PHP Intelephense
 
 in_array(x,y) comprueba si x está en el array y.
+
+Definir funcion:
+function prueba($par1, $par2)
+{
+	return
+}
+En php el paso de argumentos es por valor. Cuando tu le metes una cadena a una funcion, 
+luego no estas usando esa cadena sino una nueva con su mismo valor.
+Esto no pasaba en python ni java, alli el paso de argumentos es por referencia cuando son objetos, 
+si son valores primitivos si son por valor. En php las cadenas son tipos primitivos, los objetos si se
+pasan por referencia.
+
+En php podemos obligar a que el paso de parametros sea por referencia usando el &:
+funcion prueba(&$x) 
+
+global $g => declarar una funcion global dentro de una funcion (no se recomienda hacerlo).
+
+Variables superglobales: variables globales que no hace falta declarar como globales, como $_GET
+
