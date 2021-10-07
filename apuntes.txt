@@ -135,8 +135,36 @@ pasan por referencia.
 
 En php podemos obligar a que el paso de parametros sea por referencia usando el &:
 funcion prueba(&$x) 
+Por ejemplo, los arrays se pasan por valor, pero si queremos modificar 
+el propio array desde dentro de la funcion y no a la copia, hay que obligarlo a que se pase por referencia.
 
 global $g => declarar una funcion global dentro de una funcion (no se recomienda hacerlo).
 
 Variables superglobales: variables globales que no hace falta declarar como globales, como $_GET
+
+DECLARACIÓN DE FUNCIONES:
+function nombre(string $x, string $y): string 
+No es necesario pero puedes declarar los tipos de los parametros y del retorno
+(recuerda que aun así hay tipado debil, no es neceasrio que la funcion reciba el tipo exacto)
+En el caso de que la funcion pueda devolver null aparte de String, se trata de un valor de tipo nullable
+Se representa con el ?: function nombre(string $x, string $y): ?string
+Si una funcion no devuelve nada se puede indicar con un void
+Para indicar que un parametro o valor de retorno puede tener mas de un tipo: int|float
+function nombre(string|int $x, string $y): int|float|null
+
+
+Comentarios de documentacion (documentar funciones):
+/**
+* @param string		$par	El nombre del parametro 
+* @param array		$array	El array de errores
+* @return string|null		El valor del parametro o null si no es un numero
+*/
+Con el plugin phpdoc comment puedes documentar: f1 -> add documentation
+
+
+Cargar un fichero php en una plantilla:
+<?php
+require 'fichero.php';
+
+
 
