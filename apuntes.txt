@@ -167,4 +167,28 @@ Cargar un fichero php en una plantilla:
 require 'fichero.php';
 
 
+<form action="" method="GET">    Cuando no indicas el valor del action significa que es el propio archivo.
+
+isset($x, $y, $z) comprueba si una variable o varias existen y no son nulas.
+
+
+
+FECHAS Y HORAS:
+DateTime
+DateTimeZone
+DateTimeInmutable
+DateInterval
+DatePeriod
+DateTimeInterface
+
+$dti = new DateTimeInmutable(); Los parentesis no son necesarios si no hay parametros, pero es mejor ponerlos.
+
+Acceder a una propiedad("atributos") o metodo de un objeto: $dti->format(php:d-m-Y')
+
+Formato ISO: 'P1D'  (1 día)  'P1Y4M' (1 año y 4 meses) Son parámetros para el objeto DateInterval.
+
+
+Triple igual (===) para comparar objetos significa si los objetos son el mismo (su identidad), no que simplemente
+sean iguales, osea con mismos atributos y demás (==)
+
 
