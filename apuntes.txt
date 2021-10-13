@@ -191,4 +191,16 @@ Formato ISO: 'P1D'  (1 día)  'P1Y4M' (1 año y 4 meses) Son parámetros para el
 Triple igual (===) para comparar objetos significa si los objetos son el mismo (su identidad), no que simplemente
 sean iguales, osea con mismos atributos y demás (==)
 
+Las constantes quedan guardadas en la propia clase, no en una instancia del objeto. Para acceder a una:
+DateTime::ATOM    Los "::" son el operador de resolucion de ambito.
 
+El operador =& para objetos $x =& $y
+No crea una nueva variable que apunte al mismo objeto, sino que la ligadura de $x apunta a la misma variable que $y.
+Entonces, si ahora $x = new Object(), ahora $y tambien apunta a ese nuevo objeto.
+
+
+operador clone: hace copia superficial del objeto. $v = clone $w 
+
+$w instanceof DateTime   (devuelve true o false)
+
+la funcion checkdate() valida una fecha 
