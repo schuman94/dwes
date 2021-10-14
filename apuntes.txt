@@ -204,3 +204,26 @@ operador clone: hace copia superficial del objeto. $v = clone $w
 $w instanceof DateTime   (devuelve true o false)
 
 la funcion checkdate() valida una fecha 
+
+$fecha = explode('-', $val);  devuelve un array donde sus elementos son strings resultantes de cortar por el separador '-'
+Incluso podemos asignarlos a la vez: [$a, $m, $d] = $fecha; 
+
+array_map(funcion, array) aplica una funcion a todos los elementos de un array, devolviendo un array nuevo.
+El primer parametro es una cadena con el nombre de la funcion: 'trim' por ejemplo.
+El segundo parametro es el array.
+
+extract() es una función que recibe un array y crea variables, y si ya existian, les cambia el valor:
+extract(['x' => 4, 'y' => 7]);
+La funcion contraria es compact(), recibe cadenas con el nombre de las variables y devuelve el array.
+
+
+funcion array_diff_key() devuelve un array con la diferencia entre dos arrays que reciba como parametros.
+Se utilizan las claves para comparar, no lo valores.
+Si utilizas esta funcion para comparar los dos arrays, primero poniendo uno el primero y luego alreves, puedes
+detectar si ambos arrays tienen exactamente las mismas claves.
+
+array_intersect_key() hace la intersección, aqui da igual cual pongas primero, y no tienes que ponerlo dos veces.
+Devuelve un array con los elementos que comparten ambos arrays, y, OJO, el valor que le da a la clave es el del primerr array.
+
+
+
