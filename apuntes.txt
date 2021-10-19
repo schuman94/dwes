@@ -226,4 +226,29 @@ array_intersect_key() hace la intersección, aqui da igual cual pongas primero, 
 Devuelve un array con los elementos que comparten ambos arrays, y, OJO, el valor que le da a la clave es el del primerr array.
 
 
+EXCEPCIONES
+Errores y excepciones (ambos implementan la interfaz throwable)
+Al capturar errores con catch puedes incluir varios entre parentesis separando con un |
 
+Si en el codigo ponemos: declare(strict_types=1) arriba del todo al abrir la etiqueta php, ya da error si le pasamos
+un parametro de un tipo diferente al que pide una funcion, no se hace conversion implicita (solo en llamadas a funciones).
+Hay que ponerlo en el script que llama a la funcion, no el que la crea. Y arriba del todo, en la primera linea:
+<?php declare(strict_types=1) ?>
+
+
+Instalar postgresql
+sudo apt install postgresql
+sudo -u postgres createdb prueba
+sudo -u postgres createuser -P prueba
+pqsl -h localhost -U prueba -d prueba
+
+Una vez tenemos un fichero con la creacion de la tabla:
+psql -h localhost -U prueba -d prueba < prueba.sql
+
+$pdo = new PDO('pgsql:host=localhost;dbname=prueba', 'prueba', 'prueba');
+$sent = $pdo->query('SELECT * FROM depart');
+$filas = $sent->fetchAll(); (No se utiliza porque almacena todas las filas y eso es una locura)
+Mejor usar el foreach:
+foreach ($sent as $fila) {
+	
+}
