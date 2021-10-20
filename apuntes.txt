@@ -248,7 +248,26 @@ psql -h localhost -U prueba -d prueba < prueba.sql
 $pdo = new PDO('pgsql:host=localhost;dbname=prueba', 'prueba', 'prueba');
 $sent = $pdo->query('SELECT * FROM depart');
 $filas = $sent->fetchAll(); (No se utiliza porque almacena todas las filas y eso es una locura)
+$fila = $sent->fetch(); Recogemos una fila (es como un next).
 Mejor usar el foreach:
 foreach ($sent as $fila) {
-	
+	...	
 }
+Configurar postgres /etc/postgres/14/main/postgresql.conf
+#intervalstyle = 'iso_8691' (linea 695)
+timezone = 'UTC' (linea 696)
+
+(linea 709)
+# These settings are initialized by initdb, but they can be changed.
+lc_messages = 'en_US.UTF-8'			# locale for system error message
+					# strings
+lc_monetary = 'en_US.UTF-8'			# locale for monetary formatting
+lc_numeric = 'en_US.UTF-8'			# locale for number formatting
+lc_time = 'en_US.UTF-8'				# locale for time formatting
+
+# default configuration for text search
+default_text_search_config = 'pg_catalog.english'
+
+
+Luego de modfiicar:
+sudo systemctl restart postgresql.service
