@@ -271,3 +271,14 @@ default_text_search_config = 'pg_catalog.english'
 
 Luego de modfiicar:
 sudo systemctl restart postgresql.service
+
+
+
+Cuando hacemos una consulta que devuelve un valor, osea una fila y una columna, como por ejemplo con la funcion count(*) from emple:
+usamos $sent->fetchColumn(); y lo podemos guardar en una variable, ya solo es un dato, no es un array.
+
+fetchColumn es como el fetch, pero devuelve el valor de la columna que indiques en vez de un array de toda la fila.
+
+Para las consultas where, podemos usar LIKE O ILIKE para que encontremos por ejemplo manolo, poniendo solo man.
+where nombre ilike '%$nombre%'  Los tanto porciento son como los asteriscos, cualquier cadena antes y despues de nombre.
+
