@@ -198,6 +198,7 @@ El operador =& para objetos $x =& $y
 No crea una nueva variable que apunte al mismo objeto, sino que la ligadura de $x apunta a la misma variable que $y.
 Entonces, si ahora $x = new Object(), ahora $y tambien apunta a ese nuevo objeto.
 
+Con los operadoes .= podemos concatenar por atras a una variable. $ .= "gsogf"
 
 operador clone: hace copia superficial del objeto. $v = clone $w 
 
@@ -281,4 +282,13 @@ fetchColumn es como el fetch, pero devuelve el valor de la columna que indiques 
 
 Para las consultas where, podemos usar LIKE O ILIKE para que encontremos por ejemplo manolo, poniendo solo man.
 where nombre ilike '%$nombre%'  Los tanto porciento son como los asteriscos, cualquier cadena antes y despues de nombre.
+
+
+implode une elementos de un array en un string
+
+header('Location: index.php');  Con esto redireccionamos.
+
+return o exit(0); Termina la ejecución de la funcion.
+
+output-buffering (parametro de configuracion del buffer) en: /etc/php/8.0/cli/php.ini 
 
