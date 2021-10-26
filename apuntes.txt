@@ -292,3 +292,8 @@ return o exit(0); Termina la ejecución de la funcion.
 
 output-buffering (parametro de configuracion del buffer) en: /etc/php/8.0/cli/php.ini 
 
+Existen varias funciones de php para filtrar y ahorrarnos código:
+filter_input(INPUT_POST, 'nombre'); sustituye al codigo que teniamos con el isset() del $_POST
+
+ctype_digit("cadena") devuelve true si todos los caracteres son dígitos.
+
