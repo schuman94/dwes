@@ -297,3 +297,4 @@ filter_input(INPUT_POST, 'nombre'); sustituye al codigo que teniamos con el isse
 
 ctype_digit("cadena") devuelve true si todos los caracteres son dígitos.
 
+fetch(PDO::FETCH_ASSOC) solo devuelve el array con las asociaciones, no por indices
