@@ -298,3 +298,8 @@ filter_input(INPUT_POST, 'nombre'); sustituye al codigo que teniamos con el isse
 ctype_digit("cadena") devuelve true si todos los caracteres son dígitos.
 
 fetch(PDO::FETCH_ASSOC) solo devuelve el array con las asociaciones, no por indices
+
+Para añadir la extension pgcrypto (siendo administrador):
+sudo -u postgres psql -d prueba
+create extension pgcrypto;
+Si se lo instalamos a template1, ya todas las que se creen la tendran
