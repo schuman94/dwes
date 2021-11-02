@@ -318,9 +318,11 @@ CSRF: cross-site request forgery. Solucion crear token_csrf y la variable de ses
 bin2hex(random_bytes(32)) genera una secuencia segura para el token
 
 Para acceder a una constante declarada en una clase hay que usar el operador de resolucion de ambito, doble dos puntos:
-nombreClase::CONSTANTES
+nombreClase::CONSTANTE
 
 en php para acceder a una propiedad de un objeto se utiliza el $this, osea como el this o self.
 $this->propiedad
+Sin embargo, el self tambien existe en php, pero no es una referencia al objeto sino a la clase. Por ejemplo, se usaria para
+acceder a una constante: self::CONSTANTE 
 
 Puedes convertir en array un objeto: (array) $objeto
