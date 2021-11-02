@@ -303,3 +303,24 @@ Para añadir la extension pgcrypto (siendo administrador):
 sudo -u postgres psql -d prueba
 create extension pgcrypto;
 Si se lo instalamos a template1, ya todas las que se creen la tendran
+
+htmlspecialchars: escapamos la salida para solucionar el problema de seguridad XSS.
+Le quitamos a los caracteres especiales su condicion de caracter especial.
+Para ahorrar código nos podemos crear una funcion:
+function hh($cadena)
+{
+	return htmlspecialchars($cadena, ENT_QUOTES | ENT_SUBSTITUTE);
+}
+
+Comentarios en SQL: --
+
+CSRF: cross-site request forgery. Solucion crear token_csrf y la variable de sesion $SESSION['token_csrf'];
+bin2hex(random_bytes(32)) genera una secuencia segura para el token
+
+Para acceder a una constante declarada en una clase hay que usar el operador de resolucion de ambito, doble dos puntos:
+nombreClase::CONSTANTES
+
+en php para acceder a una propiedad de un objeto se utiliza el $this, osea como el this o self.
+$this->propiedad
+
+Puedes convertir en array un objeto: (array) $objeto
