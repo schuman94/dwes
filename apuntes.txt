@@ -326,3 +326,34 @@ Sin embargo, el self tambien existe en php, pero no es una referencia al objeto 
 acceder a una constante: self::CONSTANTE 
 
 Puedes convertir en array un objeto: (array) $objeto
+
+Dentro del constructor de una clase que tiene padre, si necesitamos llamar al constructor del padre:
+parent::__construct()
+
+json_encode(array) te devuelve una cadena con notacion JSON apartir de un array
+json_decode(cadena) convierte en objeto de la clase standarobject  (o algo asi)  una cadena con forma de JSON
+
+Enlace estatico en tiempo de ejecucion. Durante la ejecucion del programa se vinculan las funciones con el verdadero self.
+Es decir ahora cuando ve la funcion con self, aunque esa funcion esté escrita en el padre, el self hace referencia a la instancia del hijo.
+hay que poner static:: en vez de self::
+public function imprimeCampos() {
+	print_r(static::campos())
+} 
+
+En la documentacion de php viene la forma de resolver conflicto entre diferentes rasgos que use una clase
+
+Si tu objeto implementa la interfaz iterable ya puede ser iterado por ejemplo con un bucle for,
+tan solo tiene que implementar las funciones de la interfaz iterable.
+
+contravarianza en los parametros y covarianza en el tipo de retorno:
+El tipo de los parametros puede ser mas general en el hijo, y el tipo del valor de retorno puede ser mas específico en el hijo.
+Como en php no hay sobrecarga de metodos, existe la covarianza en los parametros, pero en java lo que ocurriria es que seria otro metodo distinto.
+En java no hay contravarianza pero en php. Covarianza si la hay, porque si da un tipo de retorno distinto, lo que se está haciendo es refefinir un metodo.
+
+funciones anonimas, son como funciones lambdas:
+function ($x) {return $x + 1;}
+function ($x) use($j) {return $x + $j}  //Esto es una clausura, es decir, una funcion anonima que recuerda un valor ($j) pero 
+el que tiene en ese momento cuando se ha creado, si $j luego, da igual, el valor que recuerda es el primero.
+
+
+
