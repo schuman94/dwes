@@ -331,7 +331,7 @@ Dentro del constructor de una clase que tiene padre, si necesitamos llamar al co
 parent::__construct()
 
 json_encode(array) te devuelve una cadena con notacion JSON apartir de un array
-json_decode(cadena) convierte en objeto de la clase standarobject  (o algo asi)  una cadena con forma de JSON
+json_decode(cadena) convierte en objeto de la clase stdClass una cadena con forma de JSON
 
 Enlace estatico en tiempo de ejecucion. Durante la ejecucion del programa se vinculan las funciones con el verdadero self.
 Es decir ahora cuando ve la funcion con self, aunque esa funcion esté escrita en el padre, el self hace referencia a la instancia del hijo.
@@ -354,6 +354,49 @@ funciones anonimas, son como funciones lambdas:
 function ($x) {return $x + 1;}
 function ($x) use($j) {return $x + $j}  //Esto es una clausura, es decir, una funcion anonima que recuerda un valor ($j) pero 
 el que tiene en ese momento cuando se ha creado, si $j luego, da igual, el valor que recuerda es el primero.
+
+el array_map se puede usar con funciones, funciones anonimas, metodos de objetos y metodos estaticos de clases:
+con una funcion seria... array_map('nombreFuncion', array);
+con una funcion anonima seria... array_map(function ($x) {return $x; }, array);
+con el método de un objeto seria...  array_map([$o, 'nombreMetodo'], array);
+con un metodo estatico de clase seria... array_map(['nombreClase', 'nombreMetodo'], array);
+
+Tambien existe el array_reduce (por ejemplo sumar todos los elementos de un array)
+
+el call_user_func() es util como una funcion generica para llamar a callables. Es la manera generica de llamar a cualquier cosa que puedas llamar.
+el call_user_func tiene como argumentos un callable y luego una serie de argumentos que son los que necesita el propio callable. Es como decir:
+llama a esta funcion con estos argumentos. Pero estamos generalizando porque dependiendo de la situacion se llamará a un callable u otro.
+
+
+(array) $o    ->    convierte en array el objeto mostrando las propiedades publicas del objeto.
+(object) array  -> hace la operacion inversa, las claves son el nombre de la propiedad y el valor pues el valor de la propiedad.
+
+get_class() devuelve la clase de un objeto.
+
+Los espacios de nombre se representan usando la barra invertida. El espacio de nombre raiz es: \
+Al principio de un fichero se pone: namespace X;
+Esto significa que todo pertenece al espacio de nombre X.
+
+para usar cosas de otros espacios de nombres:
+para clases interfaces o rasgos: use
+para constantes: use const
+para funciones: use function
+Los use llevan la barra raiz implicita (no hay que ponerla) porque en el use siempre se pone ruta absoluta.
+En el caso de las funciones y constantes primero busca en el espacio de nombre actual y luego busca en el raiz,
+por eso podemos llamar a funciones tipicas sin poner la barra raiz si estamos en otro espacio de nombre. Si en ese espacio defino una funcion
+con ese mismo nombre, me pilla esa nueva porque es la primera que busca, y para llamar a la original hay que usar la barra raiz.
+
+gestor de dependencias: composer
+Para descargarlo tenemos estos comandos de getcomposer.com:
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+Luego es aconsejable:
+Si no existe la carpeta, la creamos: mkdir -p ~/.local/bin 
+luego ya lo movemos: mv composer.phar ~/.local/bin/composer
+
 
 
 
