@@ -398,5 +398,18 @@ Si no existe la carpeta, la creamos: mkdir -p ~/.local/bin
 luego ya lo movemos: mv composer.phar ~/.local/bin/composer
 
 
+packagist.org es un repositorio con los paquetes de composer.
+
+En la carpeta de nuestro proyecto ejecutamos el comando:
+composer require mpdf/mpdf
+Asi instalamos el paquete que queremos y los que dependen de él.
+La carpeta vendor generada contiene los paquetes, esta carpeta se ignora en el git marcandola en el gitignore.
+Esta carpeta se genera gracias al composer.lock cuando hagamos pull en otro pc. Y para ellos tenemos que ejecutar:
+composer intall
 
 
+Para instalar los paquetes de php de Ricardo:
+sudo apt install $(<lista_paquetes.txt )
+
+Para cargar todas las clases automaticamente:
+require 'vendor/autoload.php';
