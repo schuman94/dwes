@@ -405,7 +405,7 @@ composer require mpdf/mpdf
 Asi instalamos el paquete que queremos y los que dependen de él.
 La carpeta vendor generada contiene los paquetes, esta carpeta se ignora en el git marcandola en el gitignore.
 Esta carpeta se genera gracias al composer.lock cuando hagamos pull en otro pc. Y para ellos tenemos que ejecutar:
-composer intall
+composer install
 
 
 Para instalar los paquetes de php de Ricardo:
@@ -413,3 +413,35 @@ sudo apt install $(<lista_paquetes.txt )
 
 Para cargar todas las clases automaticamente:
 require 'vendor/autoload.php';
+
+Con esto indicamos que es una dependencia solo de desarrollo:
+composer require --dev 
+
+Para instalar los paquetes en otro sitio luego:
+composer install
+composer install --no-dev (solo los de produccion)
+
+php-fig (web donde estan las recomendaciones de las reglas de estilo de php)
+
+psql -h localhost ...... < prueba.sql (ejecutas en la base de datos todos los comandos para crear la base de datos)
+
+
+Preguntas si se envia por post:
+if ($_SERVER['REQUEST_METHOD'] == 'POST) {   }
+
+
+tipicos problemas que el framework resuelve:
+1. rutas -> constante con ruta absoluta del sistema de ficheros a la carpeta principal (como cambies de pc hay que cambiarla tambien)
+2. session_start() como no te acuerdes de ponerlo (en la primera linea), se pierde la sesion
+3. repeticion de codigo en la plantilla
+4. validacion de datos complejos, como las fechas y horas.
+5. document root  (fallo de seguridad: todos tienen acceso a los archivos)
+6. sql (si trabajamos directamente en sql, cada motor tiene matices diferentes)
+7. mezclar html, php, sql, etc
+8. hemos utilizado un estilo procedimental en vez de orientado a objetos
+
+
+
+
+
+
