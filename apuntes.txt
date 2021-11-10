@@ -441,7 +441,8 @@ tipicos problemas que el framework resuelve:
 8. hemos utilizado un estilo procedimental en vez de orientado a objetos
 
 
+En tailwindscomponents hay codigo creado por otros que podemos usar.
+Extension de code: Tailwind CSS IntelliSense
 
-
-
-
+Una de las formas de instalar el laravel:
+composer create-project laravel/laravel nombreProyecto
