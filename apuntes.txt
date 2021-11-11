@@ -409,7 +409,7 @@ composer install
 
 
 Para instalar los paquetes de php de Ricardo:
-sudo apt install $(<lista_paquetes.txt )
+sudo apt install $(<lista_paquetes.txt)
 
 Para cargar todas las clases automaticamente:
 require 'vendor/autoload.php';
@@ -446,3 +446,16 @@ Extension de code: Tailwind CSS IntelliSense
 
 Una de las formas de instalar el laravel:
 composer create-project laravel/laravel nombreProyecto
+
+Luego dentro de la carpeta creada hacemos el git init, add y commit inicial
+Si tenemos instalados el cliente de github oficial:
+gh repo create
+git push -u origin master
+Sino, lo creamos desde github como siempre.
+
+Para crear el servidor ahora se hace así:
+php artisan serve
+
+para instalar las extensiones de ricardo en code:
+for p in $(<lista_extensiones.txt); do code --install-extension $p; done
+
