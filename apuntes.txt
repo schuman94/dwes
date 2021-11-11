@@ -206,6 +206,8 @@ $w instanceof DateTime   (devuelve true o false)
 
 la funcion checkdate() valida una fecha 
 
+DateTime::class devuelve el nombre de la clase en forma de cadena: "DateTime"
+
 $fecha = explode('-', $val);  devuelve un array donde sus elementos son strings resultantes de cortar por el separador '-'
 Incluso podemos asignarlos a la vez: [$a, $m, $d] = $fecha; 
 
