@@ -5,7 +5,7 @@
 STRING
 "" -> interpreta las secuencias de escape y las variables.
 '' -> no interpreta.
-Existiendo $h y $hola: "{$h}ola" consigue interpolar $h 
+Existiendo $h y $hola: "{$h}ola" consigue interpolar $h
 $c[0] indexa bytes en vez de posiciones. Hay carácteres que ocupan 2 bytes.
 mb_strlen() devuelve la longitud de una cadena.
 trim(), ltrim() y rtrim() elimina espacios.
@@ -127,15 +127,15 @@ function prueba($par1, $par2)
 {
 	return
 }
-En php el paso de argumentos es por valor. Cuando tu le metes una cadena a una funcion, 
+En php el paso de argumentos es por valor. Cuando tu le metes una cadena a una funcion,
 luego no estas usando esa cadena sino una nueva con su mismo valor.
-Esto no pasaba en python ni java, alli el paso de argumentos es por referencia cuando son objetos, 
+Esto no pasaba en python ni java, alli el paso de argumentos es por referencia cuando son objetos,
 si son valores primitivos si son por valor. En php las cadenas son tipos primitivos, los objetos si se
 pasan por referencia.
 
 En php podemos obligar a que el paso de parametros sea por referencia usando el &:
-funcion prueba(&$x) 
-Por ejemplo, los arrays se pasan por valor, pero si queremos modificar 
+funcion prueba(&$x)
+Por ejemplo, los arrays se pasan por valor, pero si queremos modificar
 el propio array desde dentro de la funcion y no a la copia, hay que obligarlo a que se pase por referencia.
 
 global $g => declarar una funcion global dentro de una funcion (no se recomienda hacerlo).
@@ -143,7 +143,7 @@ global $g => declarar una funcion global dentro de una funcion (no se recomienda
 Variables superglobales: variables globales que no hace falta declarar como globales, como $_GET
 
 DECLARACIÓN DE FUNCIONES:
-function nombre(string $x, string $y): string 
+function nombre(string $x, string $y): string
 No es necesario pero puedes declarar los tipos de los parametros y del retorno
 (recuerda que aun así hay tipado debil, no es neceasrio que la funcion reciba el tipo exacto)
 En el caso de que la funcion pueda devolver null aparte de String, se trata de un valor de tipo nullable
@@ -155,7 +155,7 @@ function nombre(string|int $x, string $y): int|float|null
 
 Comentarios de documentacion (documentar funciones):
 /**
-* @param string		$par	El nombre del parametro 
+* @param string		$par	El nombre del parametro
 * @param array		$array	El array de errores
 * @return string|null		El valor del parametro o null si no es un numero
 */
@@ -200,16 +200,16 @@ Entonces, si ahora $x = new Object(), ahora $y tambien apunta a ese nuevo objeto
 
 Con los operadoes .= podemos concatenar por atras a una variable. $ .= "gsogf"
 
-operador clone: hace copia superficial del objeto. $v = clone $w 
+operador clone: hace copia superficial del objeto. $v = clone $w
 
 $w instanceof DateTime   (devuelve true o false)
 
-la funcion checkdate() valida una fecha 
+la funcion checkdate() valida una fecha
 
 DateTime::class devuelve el nombre de la clase en forma de cadena: "DateTime"
 
 $fecha = explode('-', $val);  devuelve un array donde sus elementos son strings resultantes de cortar por el separador '-'
-Incluso podemos asignarlos a la vez: [$a, $m, $d] = $fecha; 
+Incluso podemos asignarlos a la vez: [$a, $m, $d] = $fecha;
 
 array_map(funcion, array) aplica una funcion a todos los elementos de un array, devolviendo un array nuevo.
 El primer parametro es una cadena con el nombre de la funcion: 'trim' por ejemplo.
@@ -254,7 +254,7 @@ $filas = $sent->fetchAll(); (No se utiliza porque almacena todas las filas y eso
 $fila = $sent->fetch(); Recogemos una fila (es como un next).
 Mejor usar el foreach:
 foreach ($sent as $fila) {
-	...	
+	...
 }
 Configurar postgres /etc/postgres/14/main/postgresql.conf
 #intervalstyle = 'iso_8691' (linea 695)
@@ -292,7 +292,7 @@ header('Location: index.php');  Con esto redireccionamos.
 
 return o exit(0); Termina la ejecución de la funcion.
 
-output-buffering (parametro de configuracion del buffer) en: /etc/php/8.0/cli/php.ini 
+output-buffering (parametro de configuracion del buffer) en: /etc/php/8.0/cli/php.ini
 
 Existen varias funciones de php para filtrar y ahorrarnos código:
 filter_input(INPUT_POST, 'nombre'); sustituye al codigo que teniamos con el isset() del $_POST
@@ -325,7 +325,7 @@ nombreClase::CONSTANTE
 en php para acceder a una propiedad de un objeto se utiliza el $this, osea como el this o self.
 $this->propiedad
 Sin embargo, el self tambien existe en php, pero no es una referencia al objeto sino a la clase. Por ejemplo, se usaria para
-acceder a una constante: self::CONSTANTE 
+acceder a una constante: self::CONSTANTE
 
 Puedes convertir en array un objeto: (array) $objeto
 
@@ -340,7 +340,7 @@ Es decir ahora cuando ve la funcion con self, aunque esa funcion esté escrita e
 hay que poner static:: en vez de self::
 public function imprimeCampos() {
 	print_r(static::campos())
-} 
+}
 
 En la documentacion de php viene la forma de resolver conflicto entre diferentes rasgos que use una clase
 
@@ -354,7 +354,7 @@ En java no hay contravarianza pero en php. Covarianza si la hay, porque si da un
 
 funciones anonimas, son como funciones lambdas:
 function ($x) {return $x + 1;}
-function ($x) use($j) {return $x + $j}  //Esto es una clausura, es decir, una funcion anonima que recuerda un valor ($j) pero 
+function ($x) use($j) {return $x + $j}  //Esto es una clausura, es decir, una funcion anonima que recuerda un valor ($j) pero
 el que tiene en ese momento cuando se ha creado, si $j luego, da igual, el valor que recuerda es el primero.
 
 el array_map se puede usar con funciones, funciones anonimas, metodos de objetos y metodos estaticos de clases:
@@ -396,7 +396,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 Luego es aconsejable:
-Si no existe la carpeta, la creamos: mkdir -p ~/.local/bin 
+Si no existe la carpeta, la creamos: mkdir -p ~/.local/bin
 luego ya lo movemos: mv composer.phar ~/.local/bin/composer
 
 
@@ -417,7 +417,7 @@ Para cargar todas las clases automaticamente:
 require 'vendor/autoload.php';
 
 Con esto indicamos que es una dependencia solo de desarrollo:
-composer require --dev 
+composer require --dev
 
 Para instalar los paquetes en otro sitio luego:
 composer install
@@ -461,3 +461,4 @@ php artisan serve
 para instalar las extensiones de ricardo en code:
 for p in $(<lista_extensiones.txt); do code --install-extension $p; done
 
+Empezamos con laravel
